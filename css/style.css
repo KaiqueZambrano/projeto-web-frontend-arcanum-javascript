@@ -263,7 +263,7 @@ main {
 	display: block
 }
 
-body:has(.section:target) #sec-dashboard {
+body:has(.section:target):not(:has(#sec-dashboard:target)) #sec-dashboard {
 	display: none
 }
 
