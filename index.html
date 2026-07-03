@@ -1,0 +1,1695 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Arcanum — Fichas de RPG</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=Cinzel+Decorative:wght@400;700&family=Crimson+Text:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<div class="layout" id="app" data-module="arcanum">
+
+  <!-- ════ HEADER ════ -->
+  <header role="banner">
+    <div class="hdr-emblem" aria-hidden="true">⚔</div>
+    <div class="hdr-brand">
+      <span class="hdr-name">Arcanum</span>
+      <span class="hdr-sub">Fichas de Personagem · D&amp;D</span>
+    </div>
+    <div class="hdr-right">
+      <div class="hdr-avatar" id="hdr-avatar" data-user-id="">KZ</div>
+      <span class="hdr-user" id="hdr-username">Kaique Zambrano</span>
+      <a href="#modal-perfil" class="btn btn-ghost btn-sm" aria-label="Perfil">⚙</a>
+    </div>
+  </header>
+
+  <!-- ════ SIDEBAR ════ -->
+  <aside role="navigation" aria-label="Menu principal">
+    <div class="nav-label">Geral</div>
+    <a href="#sec-dashboard" class="nav-link" data-section="dashboard">
+      <span class="nav-icon" aria-hidden="true">⊞</span>Dashboard
+    </a>
+    <a href="#sec-usuarios" class="nav-link" data-section="usuarios">
+      <span class="nav-icon" aria-hidden="true">👤</span>Usuários
+    </a>
+
+    <div class="nav-label">Personagens</div>
+    <a href="#sec-personagens" class="nav-link" data-section="personagens">
+      <span class="nav-icon" aria-hidden="true">⚔</span>Personagens
+    </a>
+    <a href="#sec-atributos" class="nav-link" data-section="atributos">
+      <span class="nav-icon" aria-hidden="true">◈</span>Atributos
+    </a>
+    <a href="#sec-habilidades" class="nav-link" data-section="habilidades">
+      <span class="nav-icon" aria-hidden="true">✦</span>Habilidades &amp; Magias
+    </a>
+
+    <div class="nav-label">Gestão</div>
+    <a href="#sec-inventario" class="nav-link" data-section="inventario">
+      <span class="nav-icon" aria-hidden="true">⚗</span>Inventário
+    </a>
+    <a href="#sec-historico" class="nav-link" data-section="historico">
+      <span class="nav-icon" aria-hidden="true">📜</span>Histórico &amp; Evolução
+    </a>
+  </aside>
+
+  <!-- ════════════════════════════════════════
+       MAIN
+  ════════════════════════════════════════ -->
+  <main role="main" id="main-content">
+
+    <!-- ── DASHBOARD ── -->
+    <section id="sec-dashboard" class="section" aria-labelledby="ttl-dashboard">
+      <div class="pg-head">
+        <h1 class="pg-title" id="ttl-dashboard">⊞ Dashboard</h1>
+        <p class="pg-sub">Visão geral da plataforma</p>
+      </div>
+
+      <!-- Stats -->
+      <div class="stats" id="dashboard-stats">
+        <div class="stat-card" data-stat="total-usuarios">
+          <span class="stat-n" id="stat-usuarios">3</span>
+          <div class="stat-l">Usuários</div>
+        </div>
+        <div class="stat-card" data-stat="total-personagens">
+          <span class="stat-n" id="stat-personagens">5</span>
+          <div class="stat-l">Personagens</div>
+        </div>
+        <div class="stat-card" data-stat="total-habilidades">
+          <span class="stat-n" id="stat-habilidades">12</span>
+          <div class="stat-l">Habilidades</div>
+        </div>
+        <div class="stat-card" data-stat="total-itens">
+          <span class="stat-n" id="stat-itens">27</span>
+          <div class="stat-l">Itens</div>
+        </div>
+      </div>
+
+      <!-- Personagens recentes -->
+      <div class="tbl-wrap">
+        <div class="tbl-hdr">
+          <span class="tbl-title">Personagens recentes</span>
+          <a href="#sec-personagens" class="btn btn-ghost btn-sm">Ver todos</a>
+        </div>
+        <table id="dashboard-recent-chars" aria-label="Personagens recentes">
+          <thead>
+            <tr>
+              <th scope="col">Personagem</th>
+              <th scope="col">Classe</th>
+              <th scope="col">Nível</th>
+              <th scope="col">Jogador</th>
+              <th scope="col">HP</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr data-char-id="1">
+              <td><strong>Aelindra</strong></td>
+              <td><span class="badge badge-class">Mago</span></td>
+              <td><span class="level">12</span></td>
+              <td class="td-muted">Kaique</td>
+              <td>
+                <div class="bar-wrap">
+                  <div class="bar-track"><div class="bar-fill bar-hp" style="width:72%" aria-label="72 de 100 HP"></div></div>
+                  <span class="bar-txt">72/100</span>
+                </div>
+              </td>
+            </tr>
+            <tr data-char-id="2">
+              <td><strong>Thorgrim</strong></td>
+              <td><span class="badge badge-class">Guerreiro</span></td>
+              <td><span class="level">8</span></td>
+              <td class="td-muted">Kaique</td>
+              <td>
+                <div class="bar-wrap">
+                  <div class="bar-track"><div class="bar-fill bar-hp" style="width:90%" aria-label="115 de 128 HP"></div></div>
+                  <span class="bar-txt">115/128</span>
+                </div>
+              </td>
+            </tr>
+            <tr data-char-id="3">
+              <td><strong>Sylara</strong></td>
+              <td><span class="badge badge-class">Ladino</span></td>
+              <td><span class="level">6</span></td>
+              <td class="td-muted">Kaique</td>
+              <td>
+                <div class="bar-wrap">
+                  <div class="bar-track"><div class="bar-fill bar-hp" style="width:45%" aria-label="27 de 60 HP"></div></div>
+                  <span class="bar-txt">27/60</span>
+                </div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section><!-- /dashboard -->
+
+
+    <!-- ── PERSONAGENS LIST ── -->
+    <section id="sec-personagens" class="section" aria-labelledby="ttl-personagens">
+      <div class="pg-head">
+        <h1 class="pg-title" id="ttl-personagens">⚔ Personagens</h1>
+        <p class="pg-sub">Gerencie as fichas de todos os personagens</p>
+      </div>
+
+      <div class="toolbar" role="toolbar" aria-label="Filtros e ações de personagem">
+        <div class="search-wrap">
+          <span aria-hidden="true">🔍</span>
+          <input type="search" id="search-personagens" class="search-input" placeholder="Buscar por nome, raça ou classe…" aria-label="Buscar personagens" autocomplete="off">
+        </div>
+        <select id="filter-classe" aria-label="Filtrar por classe">
+          <option value="">Todas as classes</option>
+          <option>Bárbaro</option><option>Bardo</option><option>Clérigo</option>
+          <option>Druida</option><option>Guerreiro</option><option>Ladino</option>
+          <option>Mago</option><option>Monge</option><option>Paladino</option>
+          <option>Patrulheiro</option><option>Bruxo</option><option>Feiticeiro</option>
+        </select>
+        <select id="filter-raca" aria-label="Filtrar por raça">
+          <option value="">Todas as raças</option>
+          <option>Humano</option><option>Elfo</option><option>Anão</option>
+          <option>Halfling</option><option>Draconato</option><option>Gnomo</option>
+          <option>Meio-Elfo</option><option>Meio-Orc</option><option>Tiefling</option>
+        </select>
+        <a href="#modal-novo-personagem" class="btn btn-primary" aria-haspopup="dialog">+ Novo Personagem</a>
+      </div>
+
+      <div class="tbl-wrap">
+        <div class="tbl-hdr">
+          <span class="tbl-title">Fichas de Personagens</span>
+          <span class="tbl-title td-muted" id="personagens-count" aria-live="polite">5 personagens</span>
+        </div>
+        <table id="personagens-table" aria-label="Lista de personagens">
+          <thead>
+            <tr>
+              <th scope="col">Nome</th>
+              <th scope="col">Raça</th>
+              <th scope="col">Classe</th>
+              <th scope="col">Nível</th>
+              <th scope="col">Alinhamento</th>
+              <th scope="col">HP</th>
+              <th scope="col">EP</th>
+              <th scope="col">Jogador</th>
+              <th scope="col">Criado em</th>
+              <th scope="col" aria-label="Ações"></th>
+            </tr>
+          </thead>
+          <tbody id="personagens-tbody">
+            <!-- row template — data-* ready for JS binding -->
+            <tr data-char-id="1" data-usuario-id="1">
+              <td><strong>Aelindra Starweave</strong></td>
+              <td><span class="badge badge-race">Elfo</span></td>
+              <td><span class="badge badge-class">Mago</span></td>
+              <td><span class="level">12</span></td>
+              <td><span class="badge badge-align">Neutro Bom</span></td>
+              <td>
+                <div class="bar-wrap">
+                  <div class="bar-track"><div class="bar-fill bar-hp" style="width:72%"></div></div>
+                  <span class="bar-txt">72/100</span>
+                </div>
+              </td>
+              <td>
+                <div class="bar-wrap">
+                  <div class="bar-track"><div class="bar-fill bar-ep" style="width:60%"></div></div>
+                  <span class="bar-txt">36/60</span>
+                </div>
+              </td>
+              <td class="td-muted">Kaique</td>
+              <td class="td-muted">10/05/2025</td>
+              <td>
+                <div style="display:flex;gap:6px">
+                  <a href="#modal-editar-personagem" class="btn-icon" title="Editar" aria-label="Editar Aelindra" data-action="editar-personagem" data-id="1">✎</a>
+                  <a href="#modal-ver-personagem"    class="btn-icon" title="Detalhes" aria-label="Ver Aelindra" data-action="ver-personagem" data-id="1">◎</a>
+                  <a href="#modal-confirmar-delete-char" class="btn-icon btn-danger" title="Excluir" aria-label="Excluir Aelindra" data-action="excluir-personagem" data-id="1">✕</a>
+                </div>
+              </td>
+            </tr>
+            <tr data-char-id="2" data-usuario-id="1">
+              <td><strong>Thorgrim Stonebeard</strong></td>
+              <td><span class="badge badge-race">Anão</span></td>
+              <td><span class="badge badge-class">Guerreiro</span></td>
+              <td><span class="level">8</span></td>
+              <td><span class="badge badge-align">Leal Neutro</span></td>
+              <td>
+                <div class="bar-wrap">
+                  <div class="bar-track"><div class="bar-fill bar-hp" style="width:90%"></div></div>
+                  <span class="bar-txt">115/128</span>
+                </div>
+              </td>
+              <td><span class="td-muted">—</span></td>
+              <td class="td-muted">Kaique</td>
+              <td class="td-muted">22/06/2025</td>
+              <td>
+                <div style="display:flex;gap:6px">
+                  <a href="#modal-editar-personagem" class="btn-icon" title="Editar" aria-label="Editar Thorgrim" data-action="editar-personagem" data-id="2">✎</a>
+                  <a href="#modal-ver-personagem"    class="btn-icon" title="Detalhes" aria-label="Ver Thorgrim" data-action="ver-personagem" data-id="2">◎</a>
+                  <a href="#modal-confirmar-delete-char" class="btn-icon btn-danger" title="Excluir" aria-label="Excluir Thorgrim" data-action="excluir-personagem" data-id="2">✕</a>
+                </div>
+              </td>
+            </tr>
+            <tr data-char-id="3" data-usuario-id="1">
+              <td><strong>Sylara Nightwhisper</strong></td>
+              <td><span class="badge badge-race">Meio-Elfo</span></td>
+              <td><span class="badge badge-class">Ladino</span></td>
+              <td><span class="level">6</span></td>
+              <td><span class="badge badge-align">Caótico Neutro</span></td>
+              <td>
+                <div class="bar-wrap">
+                  <div class="bar-track"><div class="bar-fill bar-hp" style="width:45%"></div></div>
+                  <span class="bar-txt">27/60</span>
+                </div>
+              </td>
+              <td><span class="td-muted">—</span></td>
+              <td class="td-muted">Kaique</td>
+              <td class="td-muted">01/07/2025</td>
+              <td>
+                <div style="display:flex;gap:6px">
+                  <a href="#modal-editar-personagem" class="btn-icon" title="Editar" aria-label="Editar Sylara" data-action="editar-personagem" data-id="3">✎</a>
+                  <a href="#modal-ver-personagem"    class="btn-icon" title="Detalhes" aria-label="Ver Sylara" data-action="ver-personagem" data-id="3">◎</a>
+                  <a href="#modal-confirmar-delete-char" class="btn-icon btn-danger" title="Excluir" aria-label="Excluir Sylara" data-action="excluir-personagem" data-id="3">✕</a>
+                </div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section><!-- /personagens -->
+
+
+    <!-- ── ATRIBUTOS ── -->
+    <section id="sec-atributos" class="section" aria-labelledby="ttl-atributos">
+      <div class="pg-head">
+        <h1 class="pg-title" id="ttl-atributos">◈ Atributos &amp; Estatísticas</h1>
+        <p class="pg-sub">Força, destreza, constituição, inteligência, sabedoria e carisma</p>
+      </div>
+
+      <!-- Seletor de personagem para atributos -->
+      <div class="form-box" style="margin-bottom:20px">
+        <div class="fgrid fgrid-2">
+          <div class="fg">
+            <label for="attr-select-personagem">Personagem</label>
+            <select id="attr-select-personagem" data-action="carregar-atributos">
+              <option value="">— Selecione um personagem —</option>
+              <option value="1">Aelindra Starweave (Mago, Nv.12)</option>
+              <option value="2">Thorgrim Stonebeard (Guerreiro, Nv.8)</option>
+              <option value="3">Sylara Nightwhisper (Ladino, Nv.6)</option>
+            </select>
+          </div>
+          <div class="fg" style="justify-content:flex-end;flex-direction:row;align-items:flex-end;gap:8px">
+            <a href="#modal-editar-atributos" class="btn btn-ghost" data-action="editar-atributos">✎ Editar Atributos</a>
+            <button class="btn btn-primary" data-action="salvar-atributos" type="button">✔ Salvar</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Display atributos (read-only) -->
+      <div id="atributos-display" data-char-id="1">
+        <div class="attr-row" id="attr-hexes" aria-label="Atributos de Aelindra">
+          <div class="attr-hex" data-attr="forca">
+            <div class="attr-hex-name">Força</div>
+            <span class="attr-hex-val" id="attr-forca-val">10</span>
+            <div class="attr-hex-mod" id="attr-forca-mod">+0</div>
+          </div>
+          <div class="attr-hex" data-attr="destreza">
+            <div class="attr-hex-name">Destreza</div>
+            <span class="attr-hex-val" id="attr-destreza-val">16</span>
+            <div class="attr-hex-mod" id="attr-destreza-mod">+3</div>
+          </div>
+          <div class="attr-hex" data-attr="constituicao">
+            <div class="attr-hex-name">Constituição</div>
+            <span class="attr-hex-val" id="attr-constituicao-val">13</span>
+            <div class="attr-hex-mod" id="attr-constituicao-mod">+1</div>
+          </div>
+          <div class="attr-hex" data-attr="inteligencia">
+            <div class="attr-hex-name">Inteligência</div>
+            <span class="attr-hex-val" id="attr-inteligencia-val">20</span>
+            <div class="attr-hex-mod" id="attr-inteligencia-mod">+5</div>
+          </div>
+          <div class="attr-hex" data-attr="sabedoria">
+            <div class="attr-hex-name">Sabedoria</div>
+            <span class="attr-hex-val" id="attr-sabedoria-val">14</span>
+            <div class="attr-hex-mod" id="attr-sabedoria-mod">+2</div>
+          </div>
+          <div class="attr-hex" data-attr="carisma">
+            <div class="attr-hex-name">Carisma</div>
+            <span class="attr-hex-val" id="attr-carisma-val">11</span>
+            <div class="attr-hex-mod" id="attr-carisma-mod">+0</div>
+          </div>
+        </div>
+
+        <!-- Modificadores detalhados -->
+        <div class="tbl-wrap">
+          <div class="tbl-hdr">
+            <span class="tbl-title">Detalhamento de Modificadores</span>
+            <a href="#modal-novo-modificador" class="btn btn-ghost btn-sm">+ Modificador</a>
+          </div>
+          <table id="modificadores-table" aria-label="Modificadores de atributos">
+            <thead>
+              <tr>
+                <th scope="col">Atributo</th>
+                <th scope="col">Valor Base</th>
+                <th scope="col">Mod. Itens</th>
+                <th scope="col">Mod. Habilidades</th>
+                <th scope="col">Total</th>
+                <th scope="col" aria-label="Ações"></th>
+              </tr>
+            </thead>
+            <tbody id="modificadores-tbody">
+              <tr data-attr-id="1" data-char-id="1" data-attr="inteligencia">
+                <td>Inteligência</td>
+                <td>20</td>
+                <td class="td-muted">+2 (Tiara)</td>
+                <td class="td-muted">+0</td>
+                <td><strong style="color:var(--gold)">22</strong></td>
+                <td>
+                  <div style="display:flex;gap:6px">
+                    <a href="#modal-editar-modificador" class="btn-icon" title="Editar" aria-label="Editar mod. Inteligência" data-action="editar-mod" data-id="1">✎</a>
+                    <a href="#modal-confirmar-delete-mod" class="btn-icon btn-danger" title="Excluir" aria-label="Excluir mod. Inteligência" data-action="excluir-mod" data-id="1">✕</a>
+                  </div>
+                </td>
+              </tr>
+              <tr data-attr-id="2" data-char-id="1" data-attr="destreza">
+                <td>Destreza</td>
+                <td>16</td>
+                <td class="td-muted">+0</td>
+                <td class="td-muted">+1 (Reflexos)</td>
+                <td><strong style="color:var(--gold)">17</strong></td>
+                <td>
+                  <div style="display:flex;gap:6px">
+                    <a href="#modal-editar-modificador" class="btn-icon" title="Editar" aria-label="Editar mod. Destreza" data-action="editar-mod" data-id="2">✎</a>
+                    <a href="#modal-confirmar-delete-mod" class="btn-icon btn-danger" title="Excluir" aria-label="Excluir mod. Destreza" data-action="excluir-mod" data-id="2">✕</a>
+                  </div>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section><!-- /atributos -->
+
+
+    <!-- ── HABILIDADES ── -->
+    <section id="sec-habilidades" class="section" aria-labelledby="ttl-habilidades">
+      <div class="pg-head">
+        <h1 class="pg-title" id="ttl-habilidades">✦ Habilidades, Magias &amp; Perícias</h1>
+        <p class="pg-sub">Gerenciar habilidades de todos os personagens</p>
+      </div>
+
+      <div class="toolbar">
+        <div class="search-wrap">
+          <span aria-hidden="true">🔍</span>
+          <input type="search" id="search-habilidades" class="search-input" placeholder="Buscar habilidade ou magia…" aria-label="Buscar habilidades">
+        </div>
+        <select id="filter-tipo-hab" aria-label="Filtrar por tipo">
+          <option value="">Todos os tipos</option>
+          <option>Habilidade</option><option>Magia</option><option>Perícia</option>
+        </select>
+        <select id="filter-char-hab" aria-label="Filtrar por personagem">
+          <option value="">Todos os personagens</option>
+          <option value="1">Aelindra</option>
+          <option value="2">Thorgrim</option>
+          <option value="3">Sylara</option>
+        </select>
+        <a href="#modal-nova-habilidade" class="btn btn-primary">+ Nova Habilidade</a>
+      </div>
+
+      <div class="skill-list" id="habilidades-list" aria-label="Lista de habilidades">
+        <div class="skill-item" data-skill-id="1" data-tipo="Magia" data-char-id="1">
+          <span class="skill-ico" aria-hidden="true">🔮</span>
+          <div>
+            <div class="skill-name">Bola de Fogo</div>
+            <div class="skill-meta">Magia · Evocação · Aelindra · Req: INT 15</div>
+          </div>
+          <span class="skill-rank">Rank III</span>
+          <div style="display:flex;gap:6px">
+            <a href="#modal-editar-habilidade" class="btn-icon" title="Editar" aria-label="Editar Bola de Fogo" data-action="editar-skill" data-id="1">✎</a>
+            <a href="#modal-confirmar-delete-skill" class="btn-icon btn-danger" title="Excluir" aria-label="Excluir Bola de Fogo" data-action="excluir-skill" data-id="1">✕</a>
+          </div>
+        </div>
+        <div class="skill-item" data-skill-id="2" data-tipo="Habilidade" data-char-id="2">
+          <span class="skill-ico" aria-hidden="true">⚔</span>
+          <div>
+            <div class="skill-name">Estilo de Combate</div>
+            <div class="skill-meta">Habilidade passiva · Thorgrim · Sem requisito</div>
+          </div>
+          <span class="skill-rank">Rank II</span>
+          <div style="display:flex;gap:6px">
+            <a href="#modal-editar-habilidade" class="btn-icon" title="Editar" aria-label="Editar Estilo de Combate" data-action="editar-skill" data-id="2">✎</a>
+            <a href="#modal-confirmar-delete-skill" class="btn-icon btn-danger" title="Excluir" aria-label="Excluir Estilo de Combate" data-action="excluir-skill" data-id="2">✕</a>
+          </div>
+        </div>
+        <div class="skill-item" data-skill-id="3" data-tipo="Pericia" data-char-id="3">
+          <span class="skill-ico" aria-hidden="true">🗡</span>
+          <div>
+            <div class="skill-name">Furtividade</div>
+            <div class="skill-meta">Perícia · Sylara · Req: DES 14</div>
+          </div>
+          <span class="skill-rank">Rank IV</span>
+          <div style="display:flex;gap:6px">
+            <a href="#modal-editar-habilidade" class="btn-icon" title="Editar" aria-label="Editar Furtividade" data-action="editar-skill" data-id="3">✎</a>
+            <a href="#modal-confirmar-delete-skill" class="btn-icon btn-danger" title="Excluir" aria-label="Excluir Furtividade" data-action="excluir-skill" data-id="3">✕</a>
+          </div>
+        </div>
+        <div class="skill-item" data-skill-id="4" data-tipo="Magia" data-char-id="1">
+          <span class="skill-ico" aria-hidden="true">❄</span>
+          <div>
+            <div class="skill-name">Cone de Gelo</div>
+            <div class="skill-meta">Magia · Evocação · Aelindra · Req: INT 17</div>
+          </div>
+          <span class="skill-rank">Rank II</span>
+          <div style="display:flex;gap:6px">
+            <a href="#modal-editar-habilidade" class="btn-icon" title="Editar" aria-label="Editar Cone de Gelo" data-action="editar-skill" data-id="4">✎</a>
+            <a href="#modal-confirmar-delete-skill" class="btn-icon btn-danger" title="Excluir" aria-label="Excluir Cone de Gelo" data-action="excluir-skill" data-id="4">✕</a>
+          </div>
+        </div>
+      </div>
+    </section><!-- /habilidades -->
+
+
+    <!-- ── INVENTÁRIO ── -->
+    <section id="sec-inventario" class="section" aria-labelledby="ttl-inventario">
+      <div class="pg-head">
+        <h1 class="pg-title" id="ttl-inventario">⚗ Inventário</h1>
+        <p class="pg-sub">Armas, armaduras, poções e itens mágicos</p>
+      </div>
+
+      <div class="toolbar">
+        <div class="search-wrap">
+          <span aria-hidden="true">🔍</span>
+          <input type="search" id="search-inventario" class="search-input" placeholder="Buscar item…" aria-label="Buscar itens">
+        </div>
+        <select id="filter-tipo-item" aria-label="Filtrar por tipo de item">
+          <option value="">Todos os tipos</option>
+          <option>Arma</option><option>Armadura</option><option>Poção</option><option>Item Mágico</option>
+        </select>
+        <select id="filter-char-inv" aria-label="Filtrar por personagem">
+          <option value="">Todos os personagens</option>
+          <option value="1">Aelindra</option><option value="2">Thorgrim</option><option value="3">Sylara</option>
+        </select>
+        <a href="#modal-novo-item" class="btn btn-primary">+ Novo Item</a>
+      </div>
+
+      <div class="inv-grid" id="inventario-grid" aria-label="Itens de inventário">
+        <div class="inv-card" data-item-id="1" data-tipo="Arma" data-char-id="2">
+          <div class="inv-card-type type-weapon">⚔ Arma</div>
+          <div class="inv-card-name">Machado de Guerra Rúnico</div>
+          <div class="inv-card-desc">Machado encantado com runas anãs. +2d6 de dano para criaturas de fogo.</div>
+          <div class="inv-card-foot">
+            <span class="inv-qty">Qtd: 1</span>
+            <div style="display:flex;gap:5px">
+              <a href="#modal-editar-item" class="btn-icon btn-sm" title="Editar" aria-label="Editar Machado" data-action="editar-item" data-id="1">✎</a>
+              <a href="#modal-confirmar-delete-item" class="btn-icon btn-danger btn-sm" title="Excluir" aria-label="Excluir Machado" data-action="excluir-item" data-id="1">✕</a>
+            </div>
+          </div>
+        </div>
+        <div class="inv-card" data-item-id="2" data-tipo="Armadura" data-char-id="2">
+          <div class="inv-card-type type-armor">🛡 Armadura</div>
+          <div class="inv-card-name">Armadura de Placas +1</div>
+          <div class="inv-card-desc">CA 18 (+1 encantado). Resistência a dano cortante.</div>
+          <div class="inv-card-foot">
+            <span class="inv-qty">Qtd: 1</span>
+            <div style="display:flex;gap:5px">
+              <a href="#modal-editar-item" class="btn-icon btn-sm" title="Editar" aria-label="Editar Armadura" data-action="editar-item" data-id="2">✎</a>
+              <a href="#modal-confirmar-delete-item" class="btn-icon btn-danger btn-sm" title="Excluir" aria-label="Excluir Armadura" data-action="excluir-item" data-id="2">✕</a>
+            </div>
+          </div>
+        </div>
+        <div class="inv-card" data-item-id="3" data-tipo="Pocao" data-char-id="3">
+          <div class="inv-card-type type-potion">⚗ Poção</div>
+          <div class="inv-card-name">Poção de Cura Superior</div>
+          <div class="inv-card-desc">Restaura 4d4+4 pontos de vida ao consumir.</div>
+          <div class="inv-card-foot">
+            <span class="inv-qty">Qtd: 3</span>
+            <div style="display:flex;gap:5px">
+              <a href="#modal-editar-item" class="btn-icon btn-sm" title="Editar" aria-label="Editar Poção" data-action="editar-item" data-id="3">✎</a>
+              <a href="#modal-confirmar-delete-item" class="btn-icon btn-danger btn-sm" title="Excluir" aria-label="Excluir Poção" data-action="excluir-item" data-id="3">✕</a>
+            </div>
+          </div>
+        </div>
+        <div class="inv-card" data-item-id="4" data-tipo="Item Magico" data-char-id="1">
+          <div class="inv-card-type type-magic">✦ Item Mágico</div>
+          <div class="inv-card-name">Tiara do Intelecto</div>
+          <div class="inv-card-desc">Define Inteligência para 19. Bônus de +2 em testes de Arcanismo.</div>
+          <div class="inv-card-foot">
+            <span class="inv-qty">Qtd: 1</span>
+            <div style="display:flex;gap:5px">
+              <a href="#modal-editar-item" class="btn-icon btn-sm" title="Editar" aria-label="Editar Tiara" data-action="editar-item" data-id="4">✎</a>
+              <a href="#modal-confirmar-delete-item" class="btn-icon btn-danger btn-sm" title="Excluir" aria-label="Excluir Tiara" data-action="excluir-item" data-id="4">✕</a>
+            </div>
+          </div>
+        </div>
+        <div class="inv-card" data-item-id="5" data-tipo="Arma" data-char-id="3">
+          <div class="inv-card-type type-weapon">⚔ Arma</div>
+          <div class="inv-card-name">Adaga Sombria</div>
+          <div class="inv-card-desc">+2d6 de dano furtivo. Invisível em luz fraca.</div>
+          <div class="inv-card-foot">
+            <span class="inv-qty">Qtd: 2</span>
+            <div style="display:flex;gap:5px">
+              <a href="#modal-editar-item" class="btn-icon btn-sm" title="Editar" aria-label="Editar Adaga" data-action="editar-item" data-id="5">✎</a>
+              <a href="#modal-confirmar-delete-item" class="btn-icon btn-danger btn-sm" title="Excluir" aria-label="Excluir Adaga" data-action="excluir-item" data-id="5">✕</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section><!-- /inventario -->
+
+
+    <!-- ── HISTÓRICO ── -->
+    <section id="sec-historico" class="section" aria-labelledby="ttl-historico">
+      <div class="pg-head">
+        <h1 class="pg-title" id="ttl-historico">📜 Histórico &amp; Evolução</h1>
+        <p class="pg-sub">Experiência, progresso de nível e notas de aventura</p>
+      </div>
+
+      <div class="toolbar" style="margin-bottom:20px">
+        <select id="hist-select-personagem" aria-label="Selecionar personagem" data-action="carregar-historico">
+          <option value="">— Selecione um personagem —</option>
+          <option value="1">Aelindra Starweave</option>
+          <option value="2">Thorgrim Stonebeard</option>
+          <option value="3">Sylara Nightwhisper</option>
+        </select>
+        <a href="#modal-nova-entrada-historico" class="btn btn-primary">+ Nova Entrada</a>
+      </div>
+
+      <!-- XP progress -->
+      <div class="xp-box" id="xp-box" data-char-id="1">
+        <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:14px">
+          <div>
+            <div style="font-family:'Cinzel',serif;font-size:18px;color:var(--gold-lt)">Aelindra Starweave</div>
+            <div style="font-size:13px;color:var(--text-2)">Mago · Elfo · Nível 12</div>
+          </div>
+          <div style="text-align:right">
+            <div style="font-family:'Cinzel',serif;font-size:22px;color:var(--gold)" id="hist-xp-total">64.000 XP</div>
+            <div style="font-size:12px;color:var(--text-3)">total acumulado</div>
+          </div>
+        </div>
+        <div class="xp-row">
+          <span class="xp-lbl">Progresso para Nível 13</span>
+          <span class="xp-val" id="hist-xp-prog">64.000 / 85.000 XP</span>
+        </div>
+        <div class="xp-track">
+          <div class="xp-fill" id="hist-xp-bar" style="width:75%" aria-label="75% do nível"></div>
+        </div>
+      </div>
+
+      <!-- Timeline -->
+      <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:16px">
+        <span style="font-family:'Cinzel',serif;font-size:13px;color:var(--text-2)">Notas de Aventura</span>
+      </div>
+      <div class="timeline" id="historico-timeline" aria-label="Histórico de aventuras">
+        <div class="tl-item" data-entry-id="3" data-char-id="1">
+          <div class="tl-dot" aria-hidden="true"></div>
+          <div class="tl-date">15 Jul 2025</div>
+          <div class="tl-box">
+            <div style="display:flex;align-items:flex-start;justify-content:space-between;gap:10px">
+              <div>
+                <div class="tl-ttl">Conquista Nível 12 — Segredo do Arquimago</div>
+                <div class="tl-txt">Após derrotar o lich Malachar e recuperar o Grimório Eterno, Aelindra atingiu o décimo-segundo nível. +5.000 XP. Aprendeu a magia Dedo da Morte.</div>
+              </div>
+              <div style="display:flex;gap:5px;flex-shrink:0">
+                <a href="#modal-editar-entrada-historico" class="btn-icon btn-sm" title="Editar" aria-label="Editar entrada" data-action="editar-historico" data-id="3">✎</a>
+                <a href="#modal-confirmar-delete-hist" class="btn-icon btn-danger btn-sm" title="Excluir" aria-label="Excluir entrada" data-action="excluir-historico" data-id="3">✕</a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="tl-item" data-entry-id="2" data-char-id="1">
+          <div class="tl-dot" aria-hidden="true"></div>
+          <div class="tl-date">02 Jun 2025</div>
+          <div class="tl-box">
+            <div style="display:flex;align-items:flex-start;justify-content:space-between;gap:10px">
+              <div>
+                <div class="tl-ttl">Ruínas de Thornhall</div>
+                <div class="tl-txt">Exploração das ruínas amaldiçoadas. Encontrou a Tiara do Intelecto. +3.200 XP distribuídos entre o grupo.</div>
+              </div>
+              <div style="display:flex;gap:5px;flex-shrink:0">
+                <a href="#modal-editar-entrada-historico" class="btn-icon btn-sm" title="Editar" aria-label="Editar entrada" data-action="editar-historico" data-id="2">✎</a>
+                <a href="#modal-confirmar-delete-hist" class="btn-icon btn-danger btn-sm" title="Excluir" aria-label="Excluir entrada" data-action="excluir-historico" data-id="2">✕</a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="tl-item" data-entry-id="1" data-char-id="1">
+          <div class="tl-dot" aria-hidden="true"></div>
+          <div class="tl-date">10 Mai 2025</div>
+          <div class="tl-box">
+            <div style="display:flex;align-items:flex-start;justify-content:space-between;gap:10px">
+              <div>
+                <div class="tl-ttl">Criação do Personagem</div>
+                <div class="tl-txt">Aelindra Starweave criada. Background: Sábia. Nível inicial 1. Primeiros passos em Neverwinter.</div>
+              </div>
+              <div style="display:flex;gap:5px;flex-shrink:0">
+                <a href="#modal-editar-entrada-historico" class="btn-icon btn-sm" title="Editar" aria-label="Editar entrada" data-action="editar-historico" data-id="1">✎</a>
+                <a href="#modal-confirmar-delete-hist" class="btn-icon btn-danger btn-sm" title="Excluir" aria-label="Excluir entrada" data-action="excluir-historico" data-id="1">✕</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section><!-- /historico -->
+
+
+    <!-- ── USUÁRIOS ── -->
+    <section id="sec-usuarios" class="section" aria-labelledby="ttl-usuarios">
+      <div class="pg-head">
+        <h1 class="pg-title" id="ttl-usuarios">👤 Usuários</h1>
+        <p class="pg-sub">Gestão de contas de usuário da plataforma</p>
+      </div>
+
+      <div class="toolbar">
+        <div class="search-wrap">
+          <span aria-hidden="true">🔍</span>
+          <input type="search" id="search-usuarios" class="search-input" placeholder="Buscar usuário…" aria-label="Buscar usuários">
+        </div>
+        <a href="#modal-novo-usuario" class="btn btn-primary">+ Novo Usuário</a>
+      </div>
+
+      <div class="tbl-wrap">
+        <div class="tbl-hdr">
+          <span class="tbl-title">Usuários Cadastrados</span>
+          <span class="tbl-title td-muted" id="usuarios-count">3 usuários</span>
+        </div>
+        <table id="usuarios-table" aria-label="Lista de usuários">
+          <thead>
+            <tr>
+              <th scope="col">Nome</th>
+              <th scope="col">E-mail</th>
+              <th scope="col">Personagens</th>
+              <th scope="col">Data de Registro</th>
+              <th scope="col" aria-label="Ações"></th>
+            </tr>
+          </thead>
+          <tbody id="usuarios-tbody">
+            <tr data-user-id="1">
+              <td>
+                <div style="display:flex;align-items:center;gap:10px">
+                  <div class="hdr-avatar" style="width:30px;height:30px;font-size:11px;flex-shrink:0">KZ</div>
+                  <strong>Kaique Zambrano</strong>
+                </div>
+              </td>
+              <td class="td-muted">kaique@email.com</td>
+              <td class="td-muted">3</td>
+              <td class="td-muted">01/01/2025</td>
+              <td>
+                <div style="display:flex;gap:6px">
+                  <a href="#modal-editar-usuario" class="btn-icon" title="Editar" aria-label="Editar Kaique" data-action="editar-usuario" data-id="1">✎</a>
+                  <a href="#modal-confirmar-delete-usuario" class="btn-icon btn-danger" title="Excluir" aria-label="Excluir Kaique" data-action="excluir-usuario" data-id="1">✕</a>
+                </div>
+              </td>
+            </tr>
+            <tr data-user-id="2">
+              <td>
+                <div style="display:flex;align-items:center;gap:10px">
+                  <div class="hdr-avatar" style="width:30px;height:30px;font-size:11px;flex-shrink:0">MO</div>
+                  <strong>Maria Oliveira</strong>
+                </div>
+              </td>
+              <td class="td-muted">maria@email.com</td>
+              <td class="td-muted">1</td>
+              <td class="td-muted">14/02/2025</td>
+              <td>
+                <div style="display:flex;gap:6px">
+                  <a href="#modal-editar-usuario" class="btn-icon" title="Editar" aria-label="Editar Maria" data-action="editar-usuario" data-id="2">✎</a>
+                  <a href="#modal-confirmar-delete-usuario" class="btn-icon btn-danger" title="Excluir" aria-label="Excluir Maria" data-action="excluir-usuario" data-id="2">✕</a>
+                </div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section><!-- /usuarios -->
+
+  </main><!-- /main -->
+</div><!-- /layout -->
+
+
+<!-- ════════════════════════════════════════
+     MODAIS — todos via CSS :target
+     (fechar com href que volta à seção)
+════════════════════════════════════════ -->
+
+<!-- ── NOVO PERSONAGEM ── -->
+<div id="modal-novo-personagem" class="modal-bg" role="dialog" aria-modal="true" aria-labelledby="modal-np-title">
+  <div class="modal">
+    <a href="#sec-personagens" class="modal-close" aria-label="Fechar">✕</a>
+    <h2 class="modal-title" id="modal-np-title">+ Novo Personagem</h2>
+
+    <form id="form-novo-personagem" data-action="criar-personagem" novalidate>
+      <div class="fsec">⚔ Identidade</div>
+      <div class="fgrid fgrid-3">
+        <div class="fg">
+          <label for="np-nome">Nome *</label>
+          <input type="text" id="np-nome" name="nome" placeholder="Nome do personagem" required>
+        </div>
+        <div class="fg">
+          <label for="np-sexo">Sexo</label>
+          <select id="np-sexo" name="sexo">
+            <option value="">—</option>
+            <option>Masculino</option><option>Feminino</option><option>Não-binário</option><option>Outro</option>
+          </select>
+        </div>
+        <div class="fg">
+          <label for="np-usuario">Jogador *</label>
+          <select id="np-usuario" name="usuario_id" required>
+            <option value="">— Selecione —</option>
+            <option value="1">Kaique Zambrano</option>
+            <option value="2">Maria Oliveira</option>
+          </select>
+        </div>
+        <div class="fg">
+          <label for="np-raca">Raça *</label>
+          <select id="np-raca" name="raca" required>
+            <option value="">—</option>
+            <option>Humano</option><option>Elfo</option><option>Anão</option>
+            <option>Halfling</option><option>Draconato</option><option>Gnomo</option>
+            <option>Meio-Elfo</option><option>Meio-Orc</option><option>Tiefling</option>
+          </select>
+        </div>
+        <div class="fg">
+          <label for="np-classe">Classe *</label>
+          <select id="np-classe" name="classe" required>
+            <option value="">—</option>
+            <option>Bárbaro</option><option>Bardo</option><option>Clérigo</option>
+            <option>Druida</option><option>Guerreiro</option><option>Ladino</option>
+            <option>Mago</option><option>Monge</option><option>Paladino</option>
+            <option>Patrulheiro</option><option>Bruxo</option><option>Feiticeiro</option>
+          </select>
+        </div>
+        <div class="fg">
+          <label for="np-nivel">Nível</label>
+          <input type="number" id="np-nivel" name="nivel" min="1" max="20" value="1">
+        </div>
+        <div class="fg">
+          <label for="np-alinhamento">Alinhamento</label>
+          <select id="np-alinhamento" name="alinhamento">
+            <option value="">—</option>
+            <option>Leal Bom</option><option>Neutro Bom</option><option>Caótico Bom</option>
+            <option>Leal Neutro</option><option>Neutro</option><option>Caótico Neutro</option>
+            <option>Leal Mau</option><option>Neutro Mau</option><option>Caótico Mau</option>
+          </select>
+        </div>
+        <div class="fg">
+          <label for="np-hp">Pontos de Vida (HP)</label>
+          <input type="number" id="np-hp" name="pontos_vida" min="1" placeholder="ex: 100">
+        </div>
+        <div class="fg">
+          <label for="np-ep">Pontos de Energia (EP)</label>
+          <input type="number" id="np-ep" name="pontos_energia" min="0" placeholder="ex: 60">
+        </div>
+        <div class="fg span-all">
+          <label for="np-descricao">Descrição / Background</label>
+          <textarea id="np-descricao" name="descricao" placeholder="Aparência, história, motivações…" rows="3"></textarea>
+        </div>
+      </div>
+
+      <div class="form-foot">
+        <a href="#sec-personagens" class="btn btn-ghost">Cancelar</a>
+        <button type="submit" class="btn btn-primary">✔ Criar Personagem</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<!-- ── EDITAR PERSONAGEM ── -->
+<div id="modal-editar-personagem" class="modal-bg" role="dialog" aria-modal="true" aria-labelledby="modal-ep-title">
+  <div class="modal">
+    <a href="#sec-personagens" class="modal-close" aria-label="Fechar">✕</a>
+    <h2 class="modal-title" id="modal-ep-title">✎ Editar Personagem</h2>
+
+    <form id="form-editar-personagem" data-action="atualizar-personagem" novalidate>
+      <input type="hidden" id="ep-id" name="id">
+      <div class="fsec">⚔ Identidade</div>
+      <div class="fgrid fgrid-3">
+        <div class="fg">
+          <label for="ep-nome">Nome *</label>
+          <input type="text" id="ep-nome" name="nome" value="Aelindra Starweave" required>
+        </div>
+        <div class="fg">
+          <label for="ep-sexo">Sexo</label>
+          <select id="ep-sexo" name="sexo">
+            <option>Feminino</option><option>Masculino</option><option>Não-binário</option><option>Outro</option>
+          </select>
+        </div>
+        <div class="fg">
+          <label for="ep-raca">Raça *</label>
+          <select id="ep-raca" name="raca" required>
+            <option>Elfo</option><option>Humano</option><option>Anão</option>
+            <option>Halfling</option><option>Draconato</option><option>Gnomo</option>
+            <option>Meio-Elfo</option><option>Meio-Orc</option><option>Tiefling</option>
+          </select>
+        </div>
+        <div class="fg">
+          <label for="ep-classe">Classe *</label>
+          <select id="ep-classe" name="classe" required>
+            <option>Mago</option><option>Bárbaro</option><option>Bardo</option><option>Clérigo</option>
+            <option>Druida</option><option>Guerreiro</option><option>Ladino</option>
+            <option>Monge</option><option>Paladino</option><option>Patrulheiro</option>
+            <option>Bruxo</option><option>Feiticeiro</option>
+          </select>
+        </div>
+        <div class="fg">
+          <label for="ep-nivel">Nível</label>
+          <input type="number" id="ep-nivel" name="nivel" min="1" max="20" value="12">
+        </div>
+        <div class="fg">
+          <label for="ep-alinhamento">Alinhamento</label>
+          <select id="ep-alinhamento" name="alinhamento">
+            <option>Neutro Bom</option><option>Leal Bom</option><option>Caótico Bom</option>
+            <option>Leal Neutro</option><option>Neutro</option><option>Caótico Neutro</option>
+            <option>Leal Mau</option><option>Neutro Mau</option><option>Caótico Mau</option>
+          </select>
+        </div>
+        <div class="fg">
+          <label for="ep-hp">HP Atual / Máximo</label>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:6px">
+            <input type="number" id="ep-hp-atual" name="hp_atual" value="72" min="0" placeholder="Atual">
+            <input type="number" id="ep-hp-max" name="hp_max" value="100" min="1" placeholder="Máximo">
+          </div>
+        </div>
+        <div class="fg">
+          <label for="ep-ep">EP Atual / Máximo</label>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:6px">
+            <input type="number" id="ep-ep-atual" name="ep_atual" value="36" min="0" placeholder="Atual">
+            <input type="number" id="ep-ep-max" name="ep_max" value="60" min="0" placeholder="Máximo">
+          </div>
+        </div>
+        <div class="fg span-all">
+          <label for="ep-descricao">Descrição</label>
+          <textarea id="ep-descricao" name="descricao" rows="3">Elfa maga de alta patente, discípula do Arquimago Elarian. Especialista em magias de evocação e transmutação.</textarea>
+        </div>
+      </div>
+
+      <div class="form-foot">
+        <a href="#sec-personagens" class="btn btn-ghost">Cancelar</a>
+        <button type="submit" class="btn btn-primary">✔ Salvar Alterações</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<!-- ── VER PERSONAGEM (detalhe) ── -->
+<div id="modal-ver-personagem" class="modal-bg" role="dialog" aria-modal="true" aria-labelledby="modal-vp-title" style="align-items:flex-start;padding:20px;overflow-y:auto">
+  <div class="modal" style="max-width:780px">
+    <a href="#sec-personagens" class="modal-close" aria-label="Fechar">✕</a>
+    <h2 class="modal-title" id="modal-vp-title">◎ Ficha do Personagem</h2>
+
+    <div class="detail-grid" id="modal-char-detail" data-char-id="1">
+      <!-- Coluna esquerda -->
+      <div class="char-portrait">
+        <div class="portrait-frame" aria-hidden="true">A</div>
+        <div class="char-name">Aelindra Starweave</div>
+        <div class="char-meta">
+          Elfo · Mago · Nível 12<br>
+          Neutro Bom<br>
+          Jogador: Kaique
+        </div>
+        <div class="detail-stats">
+          <div class="dstat">
+            <span class="dstat-n">72</span>
+            <div class="dstat-l">HP</div>
+          </div>
+          <div class="dstat">
+            <span class="dstat-n">100</span>
+            <div class="dstat-l">HP Máx</div>
+          </div>
+          <div class="dstat">
+            <span class="dstat-n">36</span>
+            <div class="dstat-l">EP</div>
+          </div>
+          <div class="dstat">
+            <span class="dstat-n">12</span>
+            <div class="dstat-l">Nível</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Coluna direita -->
+      <div>
+        <!-- Atributos resumidos -->
+        <div class="fsec" style="font-size:10.5px">◈ Atributos</div>
+        <div style="display:grid;grid-template-columns:repeat(6,1fr);gap:7px;margin-bottom:18px">
+          <div class="attr-hex" style="padding:10px 4px">
+            <div class="attr-hex-name" style="font-size:7.5px">FOR</div>
+            <span class="attr-hex-val" style="font-size:20px">10</span>
+            <div class="attr-hex-mod" style="font-size:11px">+0</div>
+          </div>
+          <div class="attr-hex" style="padding:10px 4px">
+            <div class="attr-hex-name" style="font-size:7.5px">DES</div>
+            <span class="attr-hex-val" style="font-size:20px">16</span>
+            <div class="attr-hex-mod" style="font-size:11px">+3</div>
+          </div>
+          <div class="attr-hex" style="padding:10px 4px">
+            <div class="attr-hex-name" style="font-size:7.5px">CON</div>
+            <span class="attr-hex-val" style="font-size:20px">13</span>
+            <div class="attr-hex-mod" style="font-size:11px">+1</div>
+          </div>
+          <div class="attr-hex" style="padding:10px 4px">
+            <div class="attr-hex-name" style="font-size:7.5px">INT</div>
+            <span class="attr-hex-val" style="font-size:20px">20</span>
+            <div class="attr-hex-mod" style="font-size:11px">+5</div>
+          </div>
+          <div class="attr-hex" style="padding:10px 4px">
+            <div class="attr-hex-name" style="font-size:7.5px">SAB</div>
+            <span class="attr-hex-val" style="font-size:20px">14</span>
+            <div class="attr-hex-mod" style="font-size:11px">+2</div>
+          </div>
+          <div class="attr-hex" style="padding:10px 4px">
+            <div class="attr-hex-name" style="font-size:7.5px">CAR</div>
+            <span class="attr-hex-val" style="font-size:20px">11</span>
+            <div class="attr-hex-mod" style="font-size:11px">+0</div>
+          </div>
+        </div>
+
+        <div class="fsec" style="font-size:10.5px">✦ Habilidades (3)</div>
+        <div style="font-size:13px;color:var(--text-2);margin-bottom:16px;line-height:2">
+          <span class="skill-rank" style="margin-right:6px">Bola de Fogo III</span>
+          <span class="skill-rank" style="margin-right:6px">Cone de Gelo II</span>
+          <span class="skill-rank">Toque Vampírico I</span>
+        </div>
+
+        <div class="fsec" style="font-size:10.5px">⚗ Inventário (2 itens)</div>
+        <div style="font-size:13px;color:var(--text-2);line-height:2">
+          <span class="badge badge-type" style="margin-right:6px">Tiara do Intelecto</span>
+          <span class="badge badge-type">Adaga +1</span>
+        </div>
+
+        <div style="margin-top:16px;font-size:13px;color:var(--text-2);font-style:italic;line-height:1.6">
+          "Elfa maga de alta patente, discípula do Arquimago Elarian. Especialista em magias de evocação e transmutação."
+        </div>
+      </div>
+    </div>
+
+    <div class="form-foot" style="margin-top:18px">
+      <a href="#sec-personagens" class="btn btn-ghost">Fechar</a>
+      <a href="#modal-editar-personagem" class="btn btn-primary">✎ Editar Ficha</a>
+    </div>
+  </div>
+</div>
+
+<!-- ── NOVO USUÁRIO ── -->
+<div id="modal-novo-usuario" class="modal-bg" role="dialog" aria-modal="true" aria-labelledby="modal-nu-title">
+  <div class="modal">
+    <a href="#sec-usuarios" class="modal-close" aria-label="Fechar">✕</a>
+    <h2 class="modal-title" id="modal-nu-title">+ Novo Usuário</h2>
+
+    <form id="form-novo-usuario" data-action="criar-usuario" novalidate>
+      <div class="fgrid fgrid-2">
+        <div class="fg">
+          <label for="nu-nome">Nome Completo *</label>
+          <input type="text" id="nu-nome" name="nome" placeholder="Nome do usuário" required>
+        </div>
+        <div class="fg">
+          <label for="nu-email">E-mail *</label>
+          <input type="email" id="nu-email" name="email" placeholder="email@exemplo.com" required>
+        </div>
+        <div class="fg">
+          <label for="nu-senha">Senha *</label>
+          <input type="password" id="nu-senha" name="senha" placeholder="Mínimo 8 caracteres" required minlength="8">
+        </div>
+        <div class="fg">
+          <label for="nu-senha2">Confirmar Senha *</label>
+          <input type="password" id="nu-senha2" name="senha_confirmacao" placeholder="Repita a senha" required>
+        </div>
+      </div>
+      <div class="form-foot">
+        <a href="#sec-usuarios" class="btn btn-ghost">Cancelar</a>
+        <button type="submit" class="btn btn-primary">✔ Criar Usuário</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<!-- ── EDITAR USUÁRIO ── -->
+<div id="modal-editar-usuario" class="modal-bg" role="dialog" aria-modal="true" aria-labelledby="modal-eu-title">
+  <div class="modal">
+    <a href="#sec-usuarios" class="modal-close" aria-label="Fechar">✕</a>
+    <h2 class="modal-title" id="modal-eu-title">✎ Editar Usuário</h2>
+
+    <form id="form-editar-usuario" data-action="atualizar-usuario" novalidate>
+      <input type="hidden" id="eu-id" name="id">
+      <div class="fgrid fgrid-2">
+        <div class="fg">
+          <label for="eu-nome">Nome Completo *</label>
+          <input type="text" id="eu-nome" name="nome" value="Kaique Zambrano" required>
+        </div>
+        <div class="fg">
+          <label for="eu-email">E-mail *</label>
+          <input type="email" id="eu-email" name="email" value="kaique@email.com" required>
+        </div>
+        <div class="fg span-all">
+          <label for="eu-senha-nova">Nova Senha <span style="color:var(--text-3)">(deixe em branco para não alterar)</span></label>
+          <input type="password" id="eu-senha-nova" name="senha_nova" placeholder="Nova senha…">
+          <span class="form-hint">Mínimo 8 caracteres se preenchido</span>
+        </div>
+      </div>
+      <div class="form-foot">
+        <a href="#sec-usuarios" class="btn btn-ghost">Cancelar</a>
+        <button type="submit" class="btn btn-primary">✔ Salvar Alterações</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<!-- ── NOVA HABILIDADE ── -->
+<div id="modal-nova-habilidade" class="modal-bg" role="dialog" aria-modal="true" aria-labelledby="modal-nh-title">
+  <div class="modal">
+    <a href="#sec-habilidades" class="modal-close" aria-label="Fechar">✕</a>
+    <h2 class="modal-title" id="modal-nh-title">+ Nova Habilidade / Magia / Perícia</h2>
+
+    <form id="form-nova-habilidade" data-action="criar-habilidade" novalidate>
+      <div class="fgrid fgrid-3">
+        <div class="fg">
+          <label for="nh-nome">Nome *</label>
+          <input type="text" id="nh-nome" name="nome" placeholder="Nome da habilidade" required>
+        </div>
+        <div class="fg">
+          <label for="nh-tipo">Tipo *</label>
+          <select id="nh-tipo" name="tipo" required>
+            <option value="">—</option>
+            <option>Habilidade</option><option>Magia</option><option>Perícia</option>
+          </select>
+        </div>
+        <div class="fg">
+          <label for="nh-rank">Rank</label>
+          <select id="nh-rank" name="rank">
+            <option value="">—</option>
+            <option value="1">Rank I</option><option value="2">Rank II</option>
+            <option value="3">Rank III</option><option value="4">Rank IV</option><option value="5">Rank V</option>
+          </select>
+        </div>
+        <div class="fg">
+          <label for="nh-personagem">Personagem</label>
+          <select id="nh-personagem" name="personagem_id">
+            <option value="">—</option>
+            <option value="1">Aelindra</option><option value="2">Thorgrim</option><option value="3">Sylara</option>
+          </select>
+        </div>
+        <div class="fg">
+          <label for="nh-requisitos">Requisitos</label>
+          <input type="text" id="nh-requisitos" name="requisitos" placeholder="ex: INT 15, nível 5">
+        </div>
+        <div class="fg span-all">
+          <label for="nh-efeitos">Efeitos / Descrição *</label>
+          <textarea id="nh-efeitos" name="efeitos" placeholder="Descreva os efeitos da habilidade…" rows="3" required></textarea>
+        </div>
+      </div>
+      <div class="form-foot">
+        <a href="#sec-habilidades" class="btn btn-ghost">Cancelar</a>
+        <button type="submit" class="btn btn-primary">✔ Criar</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<!-- ── EDITAR HABILIDADE ── -->
+<div id="modal-editar-habilidade" class="modal-bg" role="dialog" aria-modal="true" aria-labelledby="modal-eh-title">
+  <div class="modal">
+    <a href="#sec-habilidades" class="modal-close" aria-label="Fechar">✕</a>
+    <h2 class="modal-title" id="modal-eh-title">✎ Editar Habilidade</h2>
+
+    <form id="form-editar-habilidade" data-action="atualizar-habilidade" novalidate>
+      <input type="hidden" id="eh-id" name="id">
+      <div class="fgrid fgrid-3">
+        <div class="fg">
+          <label for="eh-nome">Nome *</label>
+          <input type="text" id="eh-nome" name="nome" value="Bola de Fogo" required>
+        </div>
+        <div class="fg">
+          <label for="eh-tipo">Tipo *</label>
+          <select id="eh-tipo" name="tipo" required>
+            <option>Magia</option><option>Habilidade</option><option>Perícia</option>
+          </select>
+        </div>
+        <div class="fg">
+          <label for="eh-rank">Rank</label>
+          <select id="eh-rank" name="rank">
+            <option value="1">Rank I</option><option value="2">Rank II</option>
+            <option value="3" selected>Rank III</option><option value="4">Rank IV</option><option value="5">Rank V</option>
+          </select>
+        </div>
+        <div class="fg">
+          <label for="eh-requisitos">Requisitos</label>
+          <input type="text" id="eh-requisitos" name="requisitos" value="INT 15">
+        </div>
+        <div class="fg span-all">
+          <label for="eh-efeitos">Efeitos</label>
+          <textarea id="eh-efeitos" name="efeitos" rows="3">Lança uma esfera de fogo que explode em área de 6m. 8d6 de dano de fogo. Salvaguarda de DES CD 17 para metade do dano.</textarea>
+        </div>
+      </div>
+      <div class="form-foot">
+        <a href="#sec-habilidades" class="btn btn-ghost">Cancelar</a>
+        <button type="submit" class="btn btn-primary">✔ Salvar</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<!-- ── NOVO ITEM ── -->
+<div id="modal-novo-item" class="modal-bg" role="dialog" aria-modal="true" aria-labelledby="modal-ni-title">
+  <div class="modal">
+    <a href="#sec-inventario" class="modal-close" aria-label="Fechar">✕</a>
+    <h2 class="modal-title" id="modal-ni-title">+ Novo Item</h2>
+
+    <form id="form-novo-item" data-action="criar-item" novalidate>
+      <div class="fgrid fgrid-3">
+        <div class="fg">
+          <label for="ni-nome">Nome *</label>
+          <input type="text" id="ni-nome" name="nome" placeholder="Nome do item" required>
+        </div>
+        <div class="fg">
+          <label for="ni-tipo">Tipo *</label>
+          <select id="ni-tipo" name="tipo" required>
+            <option value="">—</option>
+            <option>Arma</option><option>Armadura</option><option>Poção</option><option>Item Mágico</option>
+          </select>
+        </div>
+        <div class="fg">
+          <label for="ni-quantidade">Quantidade</label>
+          <input type="number" id="ni-quantidade" name="quantidade" min="1" value="1">
+        </div>
+        <div class="fg">
+          <label for="ni-personagem">Personagem</label>
+          <select id="ni-personagem" name="personagem_id">
+            <option value="">—</option>
+            <option value="1">Aelindra</option><option value="2">Thorgrim</option><option value="3">Sylara</option>
+          </select>
+        </div>
+        <div class="fg span-all">
+          <label for="ni-descricao">Descrição</label>
+          <textarea id="ni-descricao" name="descricao" placeholder="Aparência e detalhes do item…" rows="2"></textarea>
+        </div>
+        <div class="fg span-all">
+          <label for="ni-efeito">Efeito / Propriedades Mágicas</label>
+          <textarea id="ni-efeito" name="efeito" placeholder="Bônus, habilidades especiais…" rows="2"></textarea>
+        </div>
+      </div>
+      <div class="form-foot">
+        <a href="#sec-inventario" class="btn btn-ghost">Cancelar</a>
+        <button type="submit" class="btn btn-primary">✔ Adicionar ao Inventário</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<!-- ── EDITAR ITEM ── -->
+<div id="modal-editar-item" class="modal-bg" role="dialog" aria-modal="true" aria-labelledby="modal-ei-title">
+  <div class="modal">
+    <a href="#sec-inventario" class="modal-close" aria-label="Fechar">✕</a>
+    <h2 class="modal-title" id="modal-ei-title">✎ Editar Item</h2>
+
+    <form id="form-editar-item" data-action="atualizar-item" novalidate>
+      <input type="hidden" id="ei-id" name="id">
+      <div class="fgrid fgrid-3">
+        <div class="fg">
+          <label for="ei-nome">Nome *</label>
+          <input type="text" id="ei-nome" name="nome" value="Machado de Guerra Rúnico" required>
+        </div>
+        <div class="fg">
+          <label for="ei-tipo">Tipo *</label>
+          <select id="ei-tipo" name="tipo" required>
+            <option>Arma</option><option>Armadura</option><option>Poção</option><option>Item Mágico</option>
+          </select>
+        </div>
+        <div class="fg">
+          <label for="ei-quantidade">Quantidade</label>
+          <input type="number" id="ei-quantidade" name="quantidade" min="1" value="1">
+        </div>
+        <div class="fg span-all">
+          <label for="ei-descricao">Descrição</label>
+          <textarea id="ei-descricao" name="descricao" rows="2">Machado encantado com runas anãs. +2d6 de dano para criaturas de fogo.</textarea>
+        </div>
+        <div class="fg span-all">
+          <label for="ei-efeito">Efeito</label>
+          <textarea id="ei-efeito" name="efeito" rows="2">+2d6 de dano de fogo contra elementais. Brilha fracamente em presença de criaturas do plano elemental.</textarea>
+        </div>
+      </div>
+      <div class="form-foot">
+        <a href="#sec-inventario" class="btn btn-ghost">Cancelar</a>
+        <button type="submit" class="btn btn-primary">✔ Salvar</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<!-- ── NOVA ENTRADA HISTÓRICO ── -->
+<div id="modal-nova-entrada-historico" class="modal-bg" role="dialog" aria-modal="true" aria-labelledby="modal-neh-title">
+  <div class="modal">
+    <a href="#sec-historico" class="modal-close" aria-label="Fechar">✕</a>
+    <h2 class="modal-title" id="modal-neh-title">+ Nova Entrada de Histórico</h2>
+
+    <form id="form-nova-entrada-historico" data-action="criar-historico" novalidate>
+      <div class="fgrid fgrid-3">
+        <div class="fg">
+          <label for="neh-personagem">Personagem *</label>
+          <select id="neh-personagem" name="personagem_id" required>
+            <option value="">—</option>
+            <option value="1">Aelindra</option><option value="2">Thorgrim</option><option value="3">Sylara</option>
+          </select>
+        </div>
+        <div class="fg">
+          <label for="neh-xp">XP Ganho</label>
+          <input type="number" id="neh-xp" name="xp_ganho" min="0" placeholder="ex: 1500">
+        </div>
+        <div class="fg">
+          <label for="neh-nivel-novo">Novo Nível (se subiu)</label>
+          <input type="number" id="neh-nivel-novo" name="nivel_novo" min="1" max="20" placeholder="ex: 13">
+        </div>
+        <div class="fg">
+          <label for="neh-titulo">Título da Entrada *</label>
+          <input type="text" id="neh-titulo" name="titulo" placeholder="ex: Batalha de Thornwall" required>
+        </div>
+        <div class="fg span-all">
+          <label for="neh-nota">Nota de Aventura *</label>
+          <textarea id="neh-nota" name="nota" placeholder="Descreva o que aconteceu nessa sessão…" rows="4" required></textarea>
+        </div>
+      </div>
+      <div class="form-foot">
+        <a href="#sec-historico" class="btn btn-ghost">Cancelar</a>
+        <button type="submit" class="btn btn-primary">✔ Registrar</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<!-- ── EDITAR ATRIBUTOS ── -->
+<div id="modal-editar-atributos" class="modal-bg" role="dialog" aria-modal="true" aria-labelledby="modal-ea-title">
+  <div class="modal">
+    <a href="#sec-atributos" class="modal-close" aria-label="Fechar">✕</a>
+    <h2 class="modal-title" id="modal-ea-title">◈ Editar Atributos Base</h2>
+
+    <form id="form-editar-atributos" data-action="atualizar-atributos" novalidate>
+      <input type="hidden" id="ea-char-id" name="personagem_id">
+      <div class="fsec">Valores Base (antes dos modificadores)</div>
+      <div class="attr-row" id="attr-form-row">
+        <div class="attr-hex">
+          <div class="attr-hex-name">Força</div>
+          <div class="fg" style="gap:3px;margin-top:4px">
+            <label for="ea-forca" style="font-size:7.5px">Base</label>
+            <input type="number" class="attr-sub" id="ea-forca" name="forca" min="1" max="30" value="10" style="text-align:center;font-size:18px;padding:6px 4px">
+          </div>
+        </div>
+        <div class="attr-hex">
+          <div class="attr-hex-name">Destreza</div>
+          <div class="fg" style="gap:3px;margin-top:4px">
+            <label for="ea-destreza" style="font-size:7.5px">Base</label>
+            <input type="number" class="attr-sub" id="ea-destreza" name="destreza" min="1" max="30" value="16" style="text-align:center;font-size:18px;padding:6px 4px">
+          </div>
+        </div>
+        <div class="attr-hex">
+          <div class="attr-hex-name">Constituição</div>
+          <div class="fg" style="gap:3px;margin-top:4px">
+            <label for="ea-constituicao" style="font-size:7.5px">Base</label>
+            <input type="number" class="attr-sub" id="ea-constituicao" name="constituicao" min="1" max="30" value="13" style="text-align:center;font-size:18px;padding:6px 4px">
+          </div>
+        </div>
+        <div class="attr-hex">
+          <div class="attr-hex-name">Inteligência</div>
+          <div class="fg" style="gap:3px;margin-top:4px">
+            <label for="ea-inteligencia" style="font-size:7.5px">Base</label>
+            <input type="number" class="attr-sub" id="ea-inteligencia" name="inteligencia" min="1" max="30" value="20" style="text-align:center;font-size:18px;padding:6px 4px">
+          </div>
+        </div>
+        <div class="attr-hex">
+          <div class="attr-hex-name">Sabedoria</div>
+          <div class="fg" style="gap:3px;margin-top:4px">
+            <label for="ea-sabedoria" style="font-size:7.5px">Base</label>
+            <input type="number" class="attr-sub" id="ea-sabedoria" name="sabedoria" min="1" max="30" value="14" style="text-align:center;font-size:18px;padding:6px 4px">
+          </div>
+        </div>
+        <div class="attr-hex">
+          <div class="attr-hex-name">Carisma</div>
+          <div class="fg" style="gap:3px;margin-top:4px">
+            <label for="ea-carisma" style="font-size:7.5px">Base</label>
+            <input type="number" class="attr-sub" id="ea-carisma" name="carisma" min="1" max="30" value="11" style="text-align:center;font-size:18px;padding:6px 4px">
+          </div>
+        </div>
+      </div>
+      <div class="form-foot">
+        <a href="#sec-atributos" class="btn btn-ghost">Cancelar</a>
+        <button type="submit" class="btn btn-primary">✔ Salvar Atributos</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<!-- ── NOVO MODIFICADOR ── -->
+<div id="modal-novo-modificador" class="modal-bg" role="dialog" aria-modal="true" aria-labelledby="modal-nm-title">
+  <div class="modal" style="max-width:480px">
+    <a href="#sec-atributos" class="modal-close" aria-label="Fechar">✕</a>
+    <h2 class="modal-title" id="modal-nm-title">+ Novo Modificador</h2>
+
+    <form id="form-novo-modificador" data-action="criar-modificador" novalidate>
+      <div class="fgrid fgrid-2">
+        <div class="fg">
+          <label for="nm-atributo">Atributo *</label>
+          <select id="nm-atributo" name="atributo" required>
+            <option value="">—</option>
+            <option>Força</option><option>Destreza</option><option>Constituição</option>
+            <option>Inteligência</option><option>Sabedoria</option><option>Carisma</option>
+          </select>
+        </div>
+        <div class="fg">
+          <label for="nm-origem">Origem</label>
+          <select id="nm-origem" name="origem">
+            <option value="item">Item</option><option value="habilidade">Habilidade</option><option value="outro">Outro</option>
+          </select>
+        </div>
+        <div class="fg">
+          <label for="nm-nome-origem">Nome da Origem</label>
+          <input type="text" id="nm-nome-origem" name="nome_origem" placeholder="ex: Tiara do Intelecto">
+        </div>
+        <div class="fg">
+          <label for="nm-valor">Valor do Modificador *</label>
+          <input type="number" id="nm-valor" name="valor" placeholder="ex: +2 ou -1" required>
+        </div>
+      </div>
+      <div class="form-foot">
+        <a href="#sec-atributos" class="btn btn-ghost">Cancelar</a>
+        <button type="submit" class="btn btn-primary">✔ Adicionar</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<!-- ── CONFIRMAR EXCLUSÃO — PERSONAGEM ── -->
+<div id="modal-confirmar-delete-char" class="modal-bg" role="dialog" aria-modal="true" aria-labelledby="modal-cdc-title">
+  <div class="modal confirm-modal">
+    <a href="#sec-personagens" class="modal-close" aria-label="Fechar">✕</a>
+    <h2 class="modal-title" id="modal-cdc-title" style="font-size:16px">Excluir Personagem?</h2>
+    <p>Esta ação é permanente. Todos os atributos, habilidades e itens do personagem também serão excluídos.</p>
+    <div class="btn-group">
+      <a href="#sec-personagens" class="btn btn-ghost">Cancelar</a>
+      <button class="btn btn-danger" id="btn-confirm-delete-char" data-action="excluir-personagem" data-id="">✕ Excluir</button>
+    </div>
+  </div>
+</div>
+
+<!-- ── CONFIRMAR EXCLUSÃO — USUÁRIO ── -->
+<div id="modal-confirmar-delete-usuario" class="modal-bg" role="dialog" aria-modal="true" aria-labelledby="modal-cdu-title">
+  <div class="modal confirm-modal">
+    <a href="#sec-usuarios" class="modal-close" aria-label="Fechar">✕</a>
+    <h2 class="modal-title" id="modal-cdu-title" style="font-size:16px">Excluir Usuário?</h2>
+    <p>Remover este usuário também desvinculará seus personagens da plataforma.</p>
+    <div class="btn-group">
+      <a href="#sec-usuarios" class="btn btn-ghost">Cancelar</a>
+      <button class="btn btn-danger" id="btn-confirm-delete-user" data-action="excluir-usuario" data-id="">✕ Excluir</button>
+    </div>
+  </div>
+</div>
+
+<!-- ── CONFIRMAR EXCLUSÃO — HABILIDADE ── -->
+<div id="modal-confirmar-delete-skill" class="modal-bg" role="dialog" aria-modal="true" aria-labelledby="modal-cds-title">
+  <div class="modal confirm-modal">
+    <a href="#sec-habilidades" class="modal-close" aria-label="Fechar">✕</a>
+    <h2 class="modal-title" id="modal-cds-title" style="font-size:16px">Excluir Habilidade?</h2>
+    <p>A habilidade ou magia será removida permanentemente do personagem.</p>
+    <div class="btn-group">
+      <a href="#sec-habilidades" class="btn btn-ghost">Cancelar</a>
+      <button class="btn btn-danger" id="btn-confirm-delete-skill" data-action="excluir-skill" data-id="">✕ Excluir</button>
+    </div>
+  </div>
+</div>
+
+<!-- ── CONFIRMAR EXCLUSÃO — ITEM ── -->
+<div id="modal-confirmar-delete-item" class="modal-bg" role="dialog" aria-modal="true" aria-labelledby="modal-cdi-title">
+  <div class="modal confirm-modal">
+    <a href="#sec-inventario" class="modal-close" aria-label="Fechar">✕</a>
+    <h2 class="modal-title" id="modal-cdi-title" style="font-size:16px">Excluir Item?</h2>
+    <p>O item será removido permanentemente do inventário.</p>
+    <div class="btn-group">
+      <a href="#sec-inventario" class="btn btn-ghost">Cancelar</a>
+      <button class="btn btn-danger" id="btn-confirm-delete-item" data-action="excluir-item" data-id="">✕ Excluir</button>
+    </div>
+  </div>
+</div>
+
+<!-- ── CONFIRMAR EXCLUSÃO — HISTÓRICO ── -->
+<div id="modal-confirmar-delete-hist" class="modal-bg" role="dialog" aria-modal="true" aria-labelledby="modal-cdh-title">
+  <div class="modal confirm-modal">
+    <a href="#sec-historico" class="modal-close" aria-label="Fechar">✕</a>
+    <h2 class="modal-title" id="modal-cdh-title" style="font-size:16px">Excluir Entrada?</h2>
+    <p>Esta nota de aventura será removida permanentemente do histórico do personagem.</p>
+    <div class="btn-group">
+      <a href="#sec-historico" class="btn btn-ghost">Cancelar</a>
+      <button class="btn btn-danger" id="btn-confirm-delete-hist" data-action="excluir-historico" data-id="">✕ Excluir</button>
+    </div>
+  </div>
+</div>
+
+<!-- ── CONFIRMAR EXCLUSÃO — MODIFICADOR ── -->
+<div id="modal-confirmar-delete-mod" class="modal-bg" role="dialog" aria-modal="true" aria-labelledby="modal-cdm-title">
+  <div class="modal confirm-modal">
+    <a href="#sec-atributos" class="modal-close" aria-label="Fechar">✕</a>
+    <h2 class="modal-title" id="modal-cdm-title" style="font-size:16px">Excluir Modificador?</h2>
+    <p>Este modificador de atributo será removido permanentemente.</p>
+    <div class="btn-group">
+      <a href="#sec-atributos" class="btn btn-ghost">Cancelar</a>
+      <button class="btn btn-danger" id="btn-confirm-delete-mod" data-action="excluir-mod" data-id="">✕ Excluir</button>
+    </div>
+  </div>
+</div>
+
+<!-- ── EDITAR ENTRADA HISTÓRICO ── -->
+<div id="modal-editar-entrada-historico" class="modal-bg" role="dialog" aria-modal="true" aria-labelledby="modal-eeh-title">
+  <div class="modal">
+    <a href="#sec-historico" class="modal-close" aria-label="Fechar">✕</a>
+    <h2 class="modal-title" id="modal-eeh-title">✎ Editar Entrada</h2>
+
+    <form id="form-editar-entrada-historico" data-action="atualizar-historico" novalidate>
+      <input type="hidden" id="eeh-id" name="id">
+      <div class="fgrid fgrid-2">
+        <div class="fg">
+          <label for="eeh-xp">XP Registrado</label>
+          <input type="number" id="eeh-xp" name="xp_ganho" value="5000">
+        </div>
+        <div class="fg">
+          <label for="eeh-nivel">Nível Resultante</label>
+          <input type="number" id="eeh-nivel" name="nivel_novo" value="12">
+        </div>
+        <div class="fg">
+          <label for="eeh-titulo">Título *</label>
+          <input type="text" id="eeh-titulo" name="titulo" value="Conquista Nível 12 — Segredo do Arquimago" required>
+        </div>
+        <div class="fg span-all">
+          <label for="eeh-nota">Nota</label>
+          <textarea id="eeh-nota" name="nota" rows="4">Após derrotar o lich Malachar e recuperar o Grimório Eterno, Aelindra atingiu o décimo-segundo nível. +5.000 XP. Aprendeu a magia Dedo da Morte.</textarea>
+        </div>
+      </div>
+      <div class="form-foot">
+        <a href="#sec-historico" class="btn btn-ghost">Cancelar</a>
+        <button type="submit" class="btn btn-primary">✔ Salvar</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<!-- ════════════════════════════════════════
+     PAINEL DE ACESSIBILIDADE
+     (ABNT NBR 17225 — 5.11 Uso de cores / 5.12 Conteúdo textual)
+     Permite ao usuário alterar uso de cores e apresentação do
+     conteúdo textual sem depender de recarregar a página.
+════════════════════════════════════════ -->
+<button type="button" class="a11y-btn" id="a11y-toggle-btn" aria-haspopup="dialog" aria-expanded="false" aria-controls="a11y-panel" aria-label="Abrir opções de acessibilidade">♿</button>
+
+<div class="a11y-panel" id="a11y-panel" role="dialog" aria-modal="false" aria-labelledby="a11y-panel-title">
+  <h2 id="a11y-panel-title">♿ Acessibilidade</h2>
+  <p class="a11y-desc">Ajustes de cor e texto conforme a ABNT NBR 17225 (itens 5.11 e 5.12).</p>
+
+  <div class="a11y-group">
+    <div class="a11y-toggle">
+      <span id="a11y-contraste-lbl">Alto contraste (sem depender de cor)</span>
+      <label class="a11y-switch">
+        <input type="checkbox" id="a11y-contraste" role="switch" aria-labelledby="a11y-contraste-lbl">
+        <span class="track"><span class="thumb"></span></span>
+      </label>
+    </div>
+  </div>
+
+  <div class="a11y-group">
+    <div class="a11y-label"><span>Tamanho do texto</span><output id="a11y-font-out" for="a11y-font">100%</output></div>
+    <div class="a11y-row">
+      <input type="range" id="a11y-font" min="100" max="200" step="10" value="100" aria-label="Tamanho do texto, de 100% a 200%">
+    </div>
+  </div>
+
+  <div class="a11y-group">
+    <div class="a11y-label"><span>Espaçamento entre linhas</span><output id="a11y-lineheight-out" for="a11y-lineheight">1.5x</output></div>
+    <div class="a11y-row">
+      <input type="range" id="a11y-lineheight" min="1.5" max="3" step="0.1" value="1.5" aria-label="Espaçamento entre linhas, de 1,5x a 3x o tamanho da fonte">
+    </div>
+  </div>
+
+  <div class="a11y-group">
+    <div class="a11y-label"><span>Espaçamento entre parágrafos</span><output id="a11y-pgap-out" for="a11y-pgap">2x</output></div>
+    <div class="a11y-row">
+      <input type="range" id="a11y-pgap" min="2" max="4" step="0.5" value="2" aria-label="Espaçamento entre parágrafos, de 2x a 4x o tamanho da fonte">
+    </div>
+  </div>
+
+  <div class="a11y-group">
+    <div class="a11y-label"><span>Espaçamento entre letras</span><output id="a11y-letter-out" for="a11y-letter">0.12x</output></div>
+    <div class="a11y-row">
+      <input type="range" id="a11y-letter" min="0.12" max="0.4" step="0.02" value="0.12" aria-label="Espaçamento entre letras, de 0,12x a 0,4x o tamanho da fonte">
+    </div>
+  </div>
+
+  <div class="a11y-group">
+    <div class="a11y-label"><span>Espaçamento entre palavras</span><output id="a11y-word-out" for="a11y-word">0.16x</output></div>
+    <div class="a11y-row">
+      <input type="range" id="a11y-word" min="0.16" max="0.6" step="0.04" value="0.16" aria-label="Espaçamento entre palavras, de 0,16x a 0,6x o tamanho da fonte">
+    </div>
+  </div>
+
+  <button type="button" class="btn btn-ghost a11y-reset" id="a11y-reset">↺ Restaurar padrão</button>
+</div>
+
+<script>
+(function () {
+  var root = document.documentElement;
+  var STORAGE_KEY = 'arcanum-a11y-prefs';
+
+  var defaults = {
+    contraste: false,
+    font: 100,
+    lineheight: 1.5,
+    pgap: 2,
+    letter: 0.12,
+    word: 0.16
+  };
+
+  function load() {
+    try {
+      var saved = JSON.parse(sessionStorage.getItem(STORAGE_KEY) || 'null');
+      return saved ? Object.assign({}, defaults, saved) : Object.assign({}, defaults);
+    } catch (e) {
+      return Object.assign({}, defaults);
+    }
+  }
+
+  function save(state) {
+    try { sessionStorage.setItem(STORAGE_KEY, JSON.stringify(state)); } catch (e) {}
+  }
+
+  var state = load();
+
+  var els = {
+    btn: document.getElementById('a11y-toggle-btn'),
+    panel: document.getElementById('a11y-panel'),
+    contraste: document.getElementById('a11y-contraste'),
+    font: document.getElementById('a11y-font'),
+    fontOut: document.getElementById('a11y-font-out'),
+    lineheight: document.getElementById('a11y-lineheight'),
+    lineheightOut: document.getElementById('a11y-lineheight-out'),
+    pgap: document.getElementById('a11y-pgap'),
+    pgapOut: document.getElementById('a11y-pgap-out'),
+    letter: document.getElementById('a11y-letter'),
+    letterOut: document.getElementById('a11y-letter-out'),
+    word: document.getElementById('a11y-word'),
+    wordOut: document.getElementById('a11y-word-out'),
+    reset: document.getElementById('a11y-reset')
+  };
+
+  function applyState() {
+    root.classList.toggle('a11y-contraste', !!state.contraste);
+    root.style.setProperty('--a11y-font-scale', (state.font / 100).toFixed(2));
+    root.style.setProperty('--a11y-line-height', state.lineheight);
+    root.style.setProperty('--a11y-paragraph-gap', state.pgap);
+    root.style.setProperty('--a11y-letter-spacing', state.letter);
+    root.style.setProperty('--a11y-word-spacing', state.word);
+
+    els.contraste.checked = !!state.contraste;
+    els.font.value = state.font;
+    els.fontOut.textContent = state.font + '%';
+    els.lineheight.value = state.lineheight;
+    els.lineheightOut.textContent = parseFloat(state.lineheight).toFixed(1) + 'x';
+    els.pgap.value = state.pgap;
+    els.pgapOut.textContent = parseFloat(state.pgap).toFixed(1) + 'x';
+    els.letter.value = state.letter;
+    els.letterOut.textContent = parseFloat(state.letter).toFixed(2) + 'x';
+    els.word.value = state.word;
+    els.wordOut.textContent = parseFloat(state.word).toFixed(2) + 'x';
+  }
+
+  function togglePanel() {
+    var willOpen = !els.panel.classList.contains('open');
+    els.panel.classList.toggle('open', willOpen);
+    els.btn.setAttribute('aria-expanded', String(willOpen));
+  }
+
+  els.btn.addEventListener('click', togglePanel);
+
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape' && els.panel.classList.contains('open')) {
+      togglePanel();
+      els.btn.focus();
+    }
+  });
+
+  els.contraste.addEventListener('change', function () {
+    state.contraste = els.contraste.checked;
+    applyState();
+    save(state);
+  });
+
+  function bindRange(input, key, parser) {
+    input.addEventListener('input', function () {
+      state[key] = parser(input.value);
+      applyState();
+      save(state);
+    });
+  }
+
+  bindRange(els.font, 'font', function (v) { return parseInt(v, 10); });
+  bindRange(els.lineheight, 'lineheight', parseFloat);
+  bindRange(els.pgap, 'pgap', parseFloat);
+  bindRange(els.letter, 'letter', parseFloat);
+  bindRange(els.word, 'word', parseFloat);
+
+  els.reset.addEventListener('click', function () {
+    state = Object.assign({}, defaults);
+    applyState();
+    save(state);
+  });
+
+  applyState();
+})();
+</script>
+
+<!--
+  ╔══════════════════════════════════════════════════════╗
+  ║  DOM PRONTO PARA JS                                  ║
+  ║                                                      ║
+  ║  Principais pontos de integração:                    ║
+  ║                                                      ║
+  ║  NAVEGAÇÃO                                           ║
+  ║  - Seções: #sec-{entidade}                           ║
+  ║  - Nav links: a[data-section]                        ║
+  ║                                                      ║
+  ║  CRUD — atributos data-action="{verbo-entidade}"     ║
+  ║  - criar-personagem / atualizar-personagem           ║
+  ║  - excluir-personagem (data-id no botão)             ║
+  ║  - criar-usuario / atualizar-usuario / excluir-usuario║
+  ║  - criar-habilidade / atualizar-habilidade           ║
+  ║  - criar-item / atualizar-item / excluir-item        ║
+  ║  - criar-historico / atualizar-historico             ║
+  ║  - criar-modificador / excluir-mod                   ║
+  ║                                                      ║
+  ║  FORMULÁRIOS                                         ║
+  ║  - form#form-{acao}: submit → data-action            ║
+  ║  - input hidden #ep-id, #ei-id, etc. → populate via  ║
+  ║    JS ao clicar ✎ (usar data-id do botão)           ║
+  ║                                                      ║
+  ║  DADOS DINÂMICOS                                     ║
+  ║  - Tabelas: tbody#personagens-tbody, #usuarios-tbody ║
+  ║  - Cards: div#inventario-grid                        ║
+  ║  - Lista: div#habilidades-list                       ║
+  ║  - Timeline: div#historico-timeline                  ║
+  ║  - Stats: span#stat-{entidade}                       ║
+  ║  - XP: #hist-xp-bar (style.width), #hist-xp-prog    ║
+  ╚══════════════════════════════════════════════════════╝
+-->
+
+<script src="js/app.js"></script>
+</body>
+</html>
